@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mock iMessage – 38656</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#000;display:flex;flex-direction:column;min-height:100vh}
+    a{color:#007aff;text-decoration:underline}
+    .statusbar{display:flex;justify-content:space-between;align-items:center;padding:4px 8px 2px;font-size:12px;line-height:14px;}
+    .time-pill{background:#26d07c;color:#fff;border-radius:12px;padding:1px 8px;font-weight:600;min-width:48px;text-align:center}
+    .right-icons{display:flex;align-items:center;gap:6px;font-weight:600}
+    .signal{width:18px;height:10px;border:1px solid #000;border-radius:2px;position:relative}
+    .signal:before{content:"";position:absolute;bottom:1px;left:2px;width:14px;height:6px;background:#000;border-radius:1px}
+    .carrier{font-size:12px}
+    .battery{font-size:12px;border:1px solid #000;border-radius:3px;padding:0 3px;}
+    .navbar{display:flex;align-items:center;padding:4px 8px;gap:12px;border-bottom:1px solid #d1d1d6;background:#fafafa;}
+    .back{color:#007aff;font-size:20px;position:relative;cursor:pointer;}
+    .badge{background:#007aff;color:#fff;font-size:12px;border-radius:12px;padding:0 6px;position:absolute;top:-4px;left:12px;line-height:16px}
+    .avatar{width:48px;height:48px;border-radius:50%;background:#c7c7cc;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:600}
+    .contact-name{font-size:16px;font-weight:600}
+    .chat-wrapper{flex:1;display:flex;flex-direction:column;padding:0 12px 52px;}
+    .meta{font-size:12px;color:#8e8e93;text-align:center;margin:8px 0 4px}
+    .bubble{max-width:76%;padding:10px 14px;border-radius:18px;background:#e5e5ea;color:#000;white-space:pre-wrap;line-height:1.35;border-top-left-radius:0;font-size:15px}
+    .composer{position:fixed;bottom:0;left:0;right:0;background:#f9f9f9;border-top:1px solid #d1d1d6;padding:6px 8px;display:flex;align-items:end;gap:6px}
+    .plus{width:32px;height:32px;border-radius:50%;background:#d1d1d6;color:#000;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none}
+    .input{flex:1;border:1px solid #d1d1d6;border-radius:18px;padding:6px 12px;font-size:16px;color:#8e8e93;line-height:20px}
+    .mic{width:28px;height:28px;border-radius:50%;background:#d1d1d6;display:flex;align-items:center;justify-content:center;font-size:16px;color:#000;flex:none}
+  </style>
+</head>
+<body>
+  <div class="statusbar">
+    <div id="time-pill" class="time-pill">--:--</div>
+    <div class="right-icons">
+      <div class="signal"></div>
+      <div class="carrier">4G</div>
+      <div class="battery">99</div>
+    </div>
+  </div>
+
+  <div class="navbar">
+    <div class="back">‹ <span class="badge">47</span></div>
+    <div class="avatar">👤</div>
+    <div class="contact-name">38656</div>
+  </div>
+
+  <div class="chat-wrapper">
+    <div class="meta">Text Message • SMS<br>Tue 20 May at 11:15</div>
+    <div class="bubble">Votre titre de séjour <a href="tel:9921081874">9921081874</a>
+disponible en s-pref. Taxe à
+payer: 0075 EUR. RDV 22 MAI
+2025 ENTRE 8H30 ET 15H30
+PASSEPORT ANCIEN TITRE
+SEJOUR TIMBRE</div>
+  </div>
+
+  <div class="composer">
+    <div class="plus">＋</div>
+    <div class="input">Text Message • SMS</div>
+    <div class="mic">🎤</div>
+  </div>
+
+  <script>
+    function updateClock(){
+      const now=new Date();
+      const h=now.getHours().toString().padStart(2,'0');
+      const m=now.getMinutes().toString().padStart(2,'0');
+      document.getElementById('time-pill').textContent=`${h}:${m}`;
+    }
+    updateClock();
+    setInterval(updateClock,30000);
+  </script>
+</body>
+</html>
